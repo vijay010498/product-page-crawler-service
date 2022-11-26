@@ -1,0 +1,32 @@
+{
+  "name": "product-page-crawler-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/app.ts",
+  "scripts": {
+    "start": "ts-node lib/app.ts",
+    "start:dev": "ts-node-dev lib/app.ts",
+    "lint": "eslint --ext .ts --ext .js --ext .jsx . --max-warnings 0",
+    "lint:fix": "eslint --ext .ts --ext .js . --fix"
+  },
+  "keywords": [],
+  "author": "Vijay svijayr007@gmailcom",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-notice": "^0.9.10",
+    "ts-node-dev": "^2.0.0"
+  },
+  "dependencies": {
+    "@types/cron": "^2.0.0",
+    "@types/pg": "^8.6.5",
+    "@types/uuid": "^8.3.4",
+    "cron": "^2.1.0",
+    "pg": "^8.8.0",
+    "ts-node": "^10.9.1",
+    "uuid": "^9.0.0"
+  }
+}
