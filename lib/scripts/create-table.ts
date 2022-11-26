@@ -10,7 +10,7 @@ const createTable = async (): Promise<Boolean> => {
                     job_id varchar(50),
                     title varchar(50) NOT NULL,
                     brand varchar(50) NOT NULL,
-                    image_url varchar(50) NOT NULL,
+                    image_url varchar(255) NOT NULL,
                     result_id varchar(50) PRIMARY KEY,
                     created_at timestamp NOT NULL DEFAULT NOW(),
                     CONSTRAINT fk_crawlQueue
