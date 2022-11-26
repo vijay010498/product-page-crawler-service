@@ -5,7 +5,7 @@ import { Crawl } from '../queries/crawl';
 import { v4 } from 'uuid';
 
 class CrawlService {
-  static async crawlURL(crawl_url: string, job_id: string) {
+  static async crawlURL(crawl_url: URL, job_id: string) {
     const response = await fetch(crawl_url);
     const html = await response.text();
     const htmlSelectors = cheerio.load(html);

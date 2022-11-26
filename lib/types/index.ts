@@ -8,6 +8,7 @@ export interface CrawlResult {
 
 export interface Job {
   job_id: string,
-  job_url: URL
+  job_url: URL,
+  job_name: string,
 }
 
