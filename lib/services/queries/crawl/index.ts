@@ -21,7 +21,7 @@ class Crawl {
         await postgresClient.query('COMMIT');
         resolve(true);
       } catch (err) {
-        console.log('error', err);
+        console.log('Error in inserting Crawl Result', err);
         const { job_id } = result;
         await Queue.updateFailedJob(job_id);
         await postgresClient.query('ROLLBACK');

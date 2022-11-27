@@ -8,8 +8,8 @@ const createTable = async (): Promise<Boolean> => {
         `CREATE TABLE IF NOT EXISTS ${postgresConstants.crawledResultsTable}
                  (
                     job_id varchar(50),
-                    title varchar(50) NOT NULL,
-                    brand varchar(50) NOT NULL,
+                    title varchar(150) NOT NULL,
+                    brand varchar(100) NOT NULL,
                     image_url varchar(255) NOT NULL,
                     result_id varchar(50) PRIMARY KEY,
                     created_at timestamp NOT NULL DEFAULT NOW(),
