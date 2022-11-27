@@ -7,7 +7,7 @@ const createTable = async (): Promise<Boolean> => {
       await postgresClient.query(
         `CREATE TABLE IF NOT EXISTS ${postgresConstants.crawledResultsTable}
                  (
-                    job_id varchar(50) FOREIGN KEY REFERENCES ${postgresConstants.crawlQueueTable}(job_id),
+                    job_id varchar(50) REFERENCES ${postgresConstants.crawlQueueTable},
                     title varchar(150) NOT NULL,
                     brand varchar(100) NOT NULL,
                     image_url varchar(255) NOT NULL,
