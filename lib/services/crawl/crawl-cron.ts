@@ -4,7 +4,7 @@ import { CrawlService } from './index';
 
 class CrawlCron {
   static crawlCronJob(): CronJob {
-    return new CronJob('*/7 * * * * *', async () => {
+    return new CronJob('*/2 * * * * *', async () => {
       try {
         const { job_id, job_url, job_name } = await Queue.deQueue();
         if (job_id && job_url) {
