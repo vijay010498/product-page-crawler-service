@@ -27,7 +27,7 @@ class CrawlService {
       return;
     } catch (err) {
       console.log(`Error in Crawl Service for job_id:${job_id}`);
-      await Queue.updateFailedJob(job_id);
+      return await Queue.updateFailedJob(job_id);
     }
   }
 }
