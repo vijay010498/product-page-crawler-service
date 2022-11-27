@@ -3,6 +3,7 @@ import postgresConstants from '../../../constants/postgres';
 import { postgresClient } from '../../../postgres/client';
 import { JobStatus } from '../../../types/enums/Queue';
 import axios from 'axios';
+import { Queue } from '../../queue';
 
 class Crawl {
   static insertCrawlResultAndUpdateCrawlQueue(result: CrawlResult): Promise<boolean> {
@@ -22,7 +23,7 @@ class Crawl {
       } catch (err) {
         console.log('error', err);
         const { job_id } = result;
-        await axios.put(`http://localhost:5000/${job_id}/${JobStatus.failed}`);
+        await Queue.updateFailedJob(job_id);
         await postgresClient.query('ROLLBACK');
         reject(err);
       }

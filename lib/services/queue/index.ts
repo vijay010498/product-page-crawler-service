@@ -1,5 +1,6 @@
 import axios from 'axios';
 import type { Job } from '../../types';
+import { JobStatus } from '../../types/enums/Queue';
 
 class Queue {
   static deQueue(): Promise<Job> {
@@ -12,6 +13,18 @@ class Queue {
           job_name: job.job_name
         });
       } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  static updateFailedJob(job_id: string): Promise<boolean> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await axios.put(`http://localhost:5000/${job_id}/${JobStatus.failed}`);
+        resolve(true);
+      } catch (err) {
+        console.log(`Update Job to Failed Failed, job_id:${job_id}`, err);
         reject(err);
       }
     });
