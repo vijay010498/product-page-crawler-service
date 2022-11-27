@@ -17,7 +17,7 @@ class Crawl {
            VALUES ($1, $2, $3, $4, $5)`,
           [job_id, title, brand, image_url, result_id]
         );
-        await axios.put(`http://localhost:5000/${job_id}/${JobStatus.completed}`);
+        await axios.put(`http://crawling-queue-service:5000/${job_id}/${JobStatus.completed}`);
         await postgresClient.query('COMMIT');
         resolve(true);
       } catch (err) {
