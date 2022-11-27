@@ -11,14 +11,16 @@ class CrawlService {
     const htmlSelectors = cheerio.load(html);
     const brandSelector: any = htmlSelectors(`.${flaconConstants.brandClassName}`).attr();
     const imageSelector: any = htmlSelectors(`.${flaconConstants.imageClassName}`).attr();
+    const titleSelector: any = htmlSelectors(`.${flaconConstants.titleClassName}`);
     const { alt: brand } = brandSelector;
     const { src: image_url } = imageSelector;
+    const title = `${brandSelector.alt} ${titleSelector.text()}`;
     await Crawl.insertCrawlResultAndUpdateCrawlQueue({
       brand,
       image_url,
       job_id,
       result_id: v4(),
-      title: 'test-title'
+      title,
     });
     return;
   }

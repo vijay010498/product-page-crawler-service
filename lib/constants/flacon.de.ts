@@ -1,5 +1,5 @@
 export default {
   brandClassName: 'jEQkjW',
-  titleClassName: 'ihnFtO',
+  titleClassName: 'hRyxVn',
   imageClassName: 'grpdtf'
 };
